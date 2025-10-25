@@ -1,9 +1,11 @@
 import sys
-from .assets import extract_text_from_pdf
+from .assets import extract_text_from_pdf, get_text_chunks
 
 
 def main():
-    print(extract_text_from_pdf("assets/Study of Iot.pdf"))
+    pdf_text = extract_text_from_pdf("assets/Study of Iot.pdf")
+    chunks = get_text_chunks(pdf_text)
+    print(chunks[0])
 
 
 if __name__ == "__main__":

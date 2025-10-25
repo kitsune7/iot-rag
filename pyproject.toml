@@ -5,7 +5,7 @@ description = "A Retrieval-Augmented Generation (RAG) system for Internet of Thi
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-  "langchain>=1.0.2",
+  "langchain-text-splitters>=1.0.0",
   "pymupdf>=1.26.5",
 ]
 
