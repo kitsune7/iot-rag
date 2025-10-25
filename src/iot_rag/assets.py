@@ -1,5 +1,6 @@
 import pymupdf
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+import re
 
 
 def extract_text_from_pdf(pdf_path):
@@ -53,4 +54,20 @@ def get_text_chunks(text, chunk_size=1000, chunk_overlap=200):
             "",
         ],
     )
-    return text_splitter.split_text(text)
+    return text_splitter.split_text(_clean_text(text))
+
+
+def _clean_text(text):
+    # Remove page numbers (common pattern)
+    text = re.sub(r"\n\d+\n", "", text)
+
+    # Remove headers/footers if they repeat
+    text = re.sub(r"Copyright.*?\n", "", text)
+
+    # Remove special characters that add no value
+    text = re.sub(r"[^\w\s\.\,\;\:\!\?\-\(\)]", "", text)
+
+    # Fix hyphenated words at line breaks
+    text = re.sub(r"(\w+)-\n(\w+)", r"\1\2", text)
+
+    return text.strip()
