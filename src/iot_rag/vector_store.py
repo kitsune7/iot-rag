@@ -1,9 +1,22 @@
 """ChromaDB Vector Store for IoT RAG"""
 
+import chromadb
+from dataclasses import dataclass
 from pathlib import Path
+
 from .parser import PDFChunk
 
-import chromadb
+
+@dataclass
+class QueryMetadata:
+    source_file: str
+
+
+@dataclass
+class QueryResult:
+    id: str
+    document: str
+    metadata: QueryMetadata
 
 
 class VectorStore:
@@ -55,3 +68,38 @@ class VectorStore:
             pass  # Collection doesn't exist, that's fine
 
         return self.get_or_create_collection()
+
+    def query(self, query_text: str, top_k: int = 5) -> list[QueryResult]:
+        """
+        Queries the vector store for similar documents based on the input query text.
+
+        Args:
+            query_text (str): The text to query against the vector store.
+            top_k (int): The number of top results to return. Defaults to 5.
+        """
+        collection = self.get_or_create_collection()
+        results = collection.query(query_texts=[query_text], n_results=top_k)
+
+        # Ensure that the results are in the expected format and handle cases where there are no results
+        return [
+            QueryResult(
+                id=result_id,
+                document=document,
+                metadata=QueryMetadata(source_file=metadata["source_file"]),
+            )
+            for result_id, document, metadata in zip(
+                results["ids"][0] if results["ids"] else [],
+                results["documents"][0] if results["documents"] else [],
+                results["metadatas"][0] if results["metadatas"] else [],
+            )
+        ]
+
+    def count(self):
+        """
+        Returns the number of documents in the collection.
+
+        Returns:
+            int: The number of documents in the collection.
+        """
+        collection = self.get_or_create_collection()
+        return collection.count()
