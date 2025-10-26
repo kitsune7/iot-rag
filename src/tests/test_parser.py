@@ -1,7 +1,7 @@
-from iot_rag.assets import extract_text_from_pdf, get_text_chunks
+from iot_rag.parser import extract_text_from_pdf, get_text_chunks, PDFChunk
 
 
-class TestAssets:
+class TestParser:
     def test_extract_text_from_pdf(self):
         text = extract_text_from_pdf("assets/Intro to IoT.pdf")
 
@@ -14,9 +14,11 @@ class TestAssets:
         chunk_overlap = 100
 
         text = extract_text_from_pdf("assets/Intro to IoT.pdf")
-        chunks = get_text_chunks(text, chunk_size=chunk_size, chunk_overlap=chunk_overlap)
+        chunks = get_text_chunks(
+            text, "Intro to IoT.pdf", chunk_size=chunk_size, chunk_overlap=chunk_overlap
+        )
 
         assert len(chunks) > 0
         for chunk in chunks:
-            assert isinstance(chunk, str)
-            assert len(chunk) <= 500
+            assert len(chunk.text) <= 500
+            assert chunk.source_file == "Intro to IoT.pdf"

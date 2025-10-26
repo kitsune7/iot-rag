@@ -1,14 +1,22 @@
 import pymupdf
-from langchain_text_splitters import RecursiveCharacterTextSplitter
 import re
+from dataclasses import dataclass
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 
-def extract_text_from_pdf(pdf_path):
+@dataclass
+class PDFChunk:
+    """
+    Represents a chunk of text extracted from a document, along with its source information.
+    """
+
+    text: str
+    source_file: str = ""
+
+
+def extract_text_from_pdf(pdf_path: str):
     """
     Extracts text from a PDF file.
-
-    Args:
-        pdf_path (str): The path to the PDF file.
     """
 
     try:
@@ -23,7 +31,7 @@ def extract_text_from_pdf(pdf_path):
         return None
 
 
-def get_text_chunks(text, chunk_size=1000, chunk_overlap=200):
+def get_text_chunks(pdf_text: str, source_file: str, chunk_size=1000, chunk_overlap=200):
     """
     Splits the extracted text into smaller chunks for processing.
 
@@ -54,10 +62,11 @@ def get_text_chunks(text, chunk_size=1000, chunk_overlap=200):
             "",
         ],
     )
-    return text_splitter.split_text(_clean_text(text))
+    text_chunks = text_splitter.split_text(_clean_text(pdf_text))
+    return [PDFChunk(text=text, source_file=source_file) for text in text_chunks]
 
 
-def _clean_text(text):
+def _clean_text(text: str):
     # Remove page numbers (common pattern)
     text = re.sub(r"\n\d+\n", "", text)
 
