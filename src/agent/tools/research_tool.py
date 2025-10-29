@@ -70,14 +70,14 @@ def search_iot_research(
             distances = results["distances"][0] if results["distances"] else [0] * len(documents)
             
             for i, (doc, metadata, distance) in enumerate(zip(documents, metadatas, distances)):
-                source = metadata.get("source", f"Document_{i}")
+                source = metadata.get("source_file")
                 if source in seen_sources:
                     continue
                 seen_sources.add(source)
                 
                 formatted_results.append({
                     "content": doc[:500] + "..." if len(doc) > 500 else doc,  # Truncate long content
-                    "source": source,
+                    "source_file": source,
                     "authors": metadata.get("authors", []),
                     "year": metadata.get("year", "Unknown"),
                     "section": metadata.get("section", "Unknown"),

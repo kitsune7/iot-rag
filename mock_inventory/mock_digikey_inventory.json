@@ -1,0 +1,72 @@
+{
+  "microcontroller": [
+  {"name": "ESP32-WROOM-32", "part_number": "1528-ESP32-WROOM-32", "price": 6.95, "stock": 1200, "mA": 120, "voltage": 5},
+  {"name": "STM32F103C8T6", "part_number": "497-18036-ND", "price": 3.25, "stock": 800, "mA": 100, "voltage": 5},
+  {"name": "Arduino Nano 33 IoT", "part_number": "1050-1024-ND", "price": 18.00, "stock": 500, "mA": 140, "voltage": 5},
+  {"name": "Raspberry Pi 4 Model B", "part_number": "1690-1021-ND", "price": 45.00, "stock": 300, "mA": 1200, "voltage": 5},
+  {"name": "ESP8266 NodeMCU", "part_number": "1528-ESP8266-ND", "price": 4.50, "stock": 950, "mA": 100, "voltage": 5},
+  {"name": "Teensy 4.0", "part_number": "1528-TEENSY40-ND", "price": 19.80, "stock": 200, "mA": 140, "voltage": 5},
+  {"name": "Particle Photon", "part_number": "1528-PHOTON-ND", "price": 19.00, "stock": 150, "mA": 120, "voltage": 5},
+  {"name": "Adafruit Feather M0 WiFi", "part_number": "1528-FEATHERM0-ND", "price": 21.95, "stock": 100, "mA": 100, "voltage": 5},
+  {"name": "Seeeduino XIAO", "part_number": "1597-SEEEDUINOXIAO-ND", "price": 5.40, "stock": 600, "mA": 40, "voltage": 5},
+  {"name": "Microchip Curiosity Nano", "part_number": "579-CURIOUSNANO-ND", "price": 12.00, "stock": 350, "mA": 60, "voltage": 5}
+  ],
+  "sensor": [
+  {"name": "HC-SR501 PIR Motion Sensor", "part_number": "1528-HCSR501-ND", "price": 1.20, "stock": 2000, "mA": 12, "voltage": 5},
+  {"name": "DHT22 Temperature & Humidity Sensor", "part_number": "1528-DHT22-ND", "price": 3.50, "stock": 1800, "mA": 50, "voltage": 5},
+  {"name": "YL-69 Soil Moisture Sensor", "part_number": "1528-YL69-ND", "price": 1.10, "stock": 1500, "mA": 6, "voltage": 5},
+  {"name": "BH1750 Light Sensor", "part_number": "1528-BH1750-ND", "price": 2.00, "stock": 1200, "mA": 24, "voltage": 5},
+  {"name": "MQ-2 Gas Sensor", "part_number": "1528-MQ2-ND", "price": 2.30, "stock": 1100, "mA": 160, "voltage": 5},
+  {"name": "Water Leak Sensor", "part_number": "1528-WATERLEAK-ND", "price": 2.80, "stock": 900, "mA": 10, "voltage": 5},
+  {"name": "MAX9814 Sound Sensor", "part_number": "1528-MAX9814-ND", "price": 3.10, "stock": 800, "mA": 30, "voltage": 5},
+  {"name": "HC-SR04 Distance Sensor", "part_number": "1528-HCSR04-ND", "price": 1.50, "stock": 1700, "mA": 4, "voltage": 5},
+  {"name": "BMP280 Pressure Sensor", "part_number": "1528-BMP280-ND", "price": 2.60, "stock": 950, "mA": 0.6, "voltage": 5},
+  {"name": "TTP223 Touch Sensor", "part_number": "1528-TTP223-ND", "price": 0.90, "stock": 2100, "mA": 1, "voltage": 5}
+  ],
+  "actuator": [
+  {"name": "Songle SRD-05VDC-SL-C Relay", "part_number": "1528-SRD05VDC-ND", "price": 1.10, "stock": 1800, "mA": 72, "voltage": 5},
+  {"name": "Firgelli L12 Linear Actuator", "part_number": "1528-L12ACTUATOR-ND", "price": 69.00, "stock": 120, "mA": 1200, "voltage": 5},
+  {"name": "OpenBuilds Solenoid", "part_number": "1528-OBSOLENOID-ND", "price": 8.50, "stock": 300, "mA": 500, "voltage": 5},
+  {"name": "NEMA 17 Stepper Motor", "part_number": "1528-NEMA17-ND", "price": 13.00, "stock": 400, "mA": 1000, "voltage": 5},
+  {"name": "MG996R Servo Motor", "part_number": "1528-MG996R-ND", "price": 4.20, "stock": 700, "mA": 240, "voltage": 5},
+  {"name": "Panasonic Electric Lock", "part_number": "1528-PELOCK-ND", "price": 22.00, "stock": 90, "mA": 600, "voltage": 5},
+  {"name": "Generic Linear Actuator", "part_number": "1528-GENACTUATOR-ND", "price": 29.00, "stock": 150, "mA": 800, "voltage": 5},
+  {"name": "Generic Solenoid", "part_number": "1528-GENSOLENOID-ND", "price": 5.00, "stock": 250, "mA": 400, "voltage": 5},
+  {"name": "Generic Motor", "part_number": "1528-GENMOTOR-ND", "price": 7.00, "stock": 600, "mA": 600, "voltage": 5},
+  {"name": "Generic Servo Motor", "part_number": "1528-GENSERVO-ND", "price": 3.80, "stock": 800, "mA": 200, "voltage": 5}
+  ],
+  "display": [
+  {"name": "Nextion NX3224T024 Touchscreen", "part_number": "1528-NX3224T024-ND", "price": 18.00, "stock": 300, "mA": 300, "voltage": 5},
+  {"name": "Waveshare 7inch HDMI LCD", "part_number": "1528-WS7INCH-ND", "price": 49.00, "stock": 120, "mA": 800, "voltage": 5},
+  {"name": "SSD1306 OLED Display", "part_number": "1528-SSD1306-ND", "price": 2.90, "stock": 900, "mA": 16, "voltage": 5},
+  {"name": "WS2812B LED Indicator", "part_number": "1528-WS2812B-ND", "price": 0.30, "stock": 5000, "mA": 12, "voltage": 5},
+  {"name": "Generic HD Display", "part_number": "1528-GENHD-ND", "price": 25.00, "stock": 200, "mA": 400, "voltage": 5},
+  {"name": "Generic Small Display", "part_number": "1528-GENSMALL-ND", "price": 7.00, "stock": 400, "mA": 100, "voltage": 5},
+  {"name": "Generic LED Indicator", "part_number": "1528-GENLED-ND", "price": 0.20, "stock": 8000, "mA": 2, "voltage": 5},
+  {"name": "Generic Display", "part_number": "1528-GENDISPLAY-ND", "price": 5.00, "stock": 1000, "mA": 140, "voltage": 5},
+  {"name": "Generic Touchscreen Display", "part_number": "1528-GENTOUCH-ND", "price": 15.00, "stock": 350, "mA": 240, "voltage": 5},
+  {"name": "Generic General Purpose Display", "part_number": "1528-GENGPDISPLAY-ND", "price": 8.00, "stock": 600, "mA": 180, "voltage": 5}
+  ],
+  "power supply": [
+  {"name": "Lithium Ion Battery Pack", "part_number": "1528-LIBATPACK-ND", "price": 12.00, "stock": 700},
+  {"name": "USB Power Adapter", "part_number": "1528-USBADAPT-ND", "price": 3.00, "stock": 2000},
+  {"name": "Solar Panel 5V", "part_number": "1528-SOLAR5V-ND", "price": 9.00, "stock": 400},
+  {"name": "Generic Rechargeable Battery", "part_number": "1528-GENBAT-ND", "price": 6.00, "stock": 1200},
+  {"name": "Generic USB Adapter", "part_number": "1528-GENUSB-ND", "price": 2.50, "stock": 1800},
+  {"name": "Generic Solar Panel", "part_number": "1528-GENSOLAR-ND", "price": 8.00, "stock": 600},
+  {"name": "Generic Power Supply", "part_number": "1528-GENPOWER-ND", "price": 5.00, "stock": 1000},
+  {"name": "Generic Cordless Battery", "part_number": "1528-GENCORDLESS-ND", "price": 7.00, "stock": 900}
+  ],
+  "device case": [
+  {"name": "IP65 Weatherproof Enclosure", "part_number": "1528-IP65CASE-ND", "price": 14.00, "stock": 350},
+  {"name": "Wall-Mount ABS Box", "part_number": "1528-WALLABS-ND", "price": 8.00, "stock": 500},
+  {"name": "Clear Polycarbonate Case", "part_number": "1528-CLEARPC-ND", "price": 10.00, "stock": 400},
+  {"name": "Rugged Aluminum Enclosure", "part_number": "1528-RUGGEDAL-ND", "price": 18.00, "stock": 250},
+  {"name": "Compact ABS Case", "part_number": "1528-COMPACTABS-ND", "price": 6.00, "stock": 600},
+  {"name": "Large ABS Enclosure", "part_number": "1528-LARGEABS-ND", "price": 12.00, "stock": 300},
+  {"name": "General Purpose ABS Box", "part_number": "1528-GENABS-ND", "price": 7.00, "stock": 800},
+  {"name": "General Purpose Polycarbonate Box", "part_number": "1528-GENPC-ND", "price": 9.00, "stock": 700},
+  {"name": "General Purpose Aluminum Box", "part_number": "1528-GENAL-ND", "price": 11.00, "stock": 500},
+  {"name": "General Purpose Plastic Box", "part_number": "1528-GENPLASTIC-ND", "price": 5.00, "stock": 1000}
+  ]
+}

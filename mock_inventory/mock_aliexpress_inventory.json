@@ -1,0 +1,72 @@
+{
+  "microcontroller": [
+    {"name": "ESP32 Mini DevKit", "part_number": "AE-ESP32-MINI", "price": 4.20, "stock": 3200, "mA": 120, "voltage": 5},
+    {"name": "STM32F103C8T6 Maple", "part_number": "AE-STM32-MAPLE", "price": 2.10, "stock": 2100, "mA": 100, "voltage": 5},
+    {"name": "Nano V3.0 ATmega328P", "part_number": "AE-NANO-V3", "price": 3.00, "stock": 1800, "mA": 140, "voltage": 5},
+    {"name": "Banana Pi M2 Zero", "part_number": "AE-BPI-M2ZERO", "price": 32.00, "stock": 900, "mA": 1000, "voltage": 5},
+    {"name": "Wemos D1 Mini", "part_number": "AE-WEMOS-D1MINI", "price": 2.80, "stock": 2500, "mA": 100, "voltage": 5},
+    {"name": "Teensy LC", "part_number": "AE-TEENSY-LC", "price": 8.50, "stock": 700, "mA": 140, "voltage": 5},
+    {"name": "Photon WiFi IoT", "part_number": "AE-PHOTON-WIFI", "price": 7.00, "stock": 600, "mA": 120, "voltage": 5},
+    {"name": "Feather HUZZAH ESP8266", "part_number": "AE-FEATHER-HUZZAH", "price": 9.50, "stock": 500, "mA": 100, "voltage": 5},
+    {"name": "Seeeduino Lotus", "part_number": "AE-LOTUS", "price": 3.20, "stock": 1200, "mA": 40, "voltage": 5},
+    {"name": "Curiosity Nano ATmega4809", "part_number": "AE-CURIOUSNANO-4809", "price": 5.00, "stock": 950, "mA": 60, "voltage": 5}
+  ],
+  "sensor": [
+    {"name": "EKMB PIR Motion Detector", "part_number": "AE-EKMB-PIR", "price": 0.90, "stock": 5000, "mA": 12, "voltage": 5},
+    {"name": "AM2302 Temp & Humidity", "part_number": "AE-AM2302", "price": 1.80, "stock": 4200, "mA": 50, "voltage": 5},
+    {"name": "SEN0193 Soil Moisture", "part_number": "AE-SEN0193", "price": 0.60, "stock": 3500, "mA": 6, "voltage": 5},
+    {"name": "GY-302 Light Intensity", "part_number": "AE-GY302", "price": 1.10, "stock": 2200, "mA": 24, "voltage": 5},
+    {"name": "ZE07-CO Gas Sensor", "part_number": "AE-ZE07CO", "price": 1.30, "stock": 2100, "mA": 160, "voltage": 5},
+    {"name": "DFR0021 Water Leak", "part_number": "AE-DFR0021", "price": 1.50, "stock": 1900, "mA": 10, "voltage": 5},
+    {"name": "CJMCU-9814 Sound Module", "part_number": "AE-CJMCU9814", "price": 1.60, "stock": 1600, "mA": 30, "voltage": 5},
+    {"name": "RCWL-1601 Distance Sensor", "part_number": "AE-RCWL1601", "price": 0.80, "stock": 3700, "mA": 4, "voltage": 5},
+    {"name": "GY-BMP280 Pressure", "part_number": "AE-GYBMP280", "price": 1.20, "stock": 1950, "mA": 0.6, "voltage": 5},
+    {"name": "TTP229 Touch Module", "part_number": "AE-TTP229", "price": 0.40, "stock": 4100, "mA": 1, "voltage": 5}
+  ],
+  "actuator": [
+    {"name": "JQC-3FF-S-Z Relay", "part_number": "AE-JQC3FFSZ", "price": 0.60, "stock": 3800, "mA": 72, "voltage": 5},
+    {"name": "Actuonix L12 Mini Actuator", "part_number": "AE-ACTUONIX-L12", "price": 29.00, "stock": 320, "mA": 1200, "voltage": 5},
+    {"name": "DFRobot Solenoid Valve", "part_number": "AE-DFR-SOLENOID", "price": 2.50, "stock": 1100, "mA": 500, "voltage": 5},
+    {"name": "Wantai NEMA 17 Stepper", "part_number": "AE-WANTAI-NEMA17", "price": 7.00, "stock": 900, "mA": 1000, "voltage": 5},
+    {"name": "TowerPro MG996R Servo", "part_number": "AE-TOWERPRO-MG996R", "price": 2.10, "stock": 1700, "mA": 240, "voltage": 5},
+    {"name": "YHDO Electric Lock", "part_number": "AE-YHDO-ELOCK", "price": 8.00, "stock": 400, "mA": 600, "voltage": 5},
+    {"name": "DFRobot Linear Actuator", "part_number": "AE-DFR-ACTUATOR", "price": 12.00, "stock": 650, "mA": 800, "voltage": 5},
+    {"name": "Hanpose Solenoid", "part_number": "AE-HANPOSE-SOLENOID", "price": 1.80, "stock": 950, "mA": 400, "voltage": 5},
+    {"name": "Greartisan DC Motor", "part_number": "AE-GREARTISAN-MOTOR", "price": 2.50, "stock": 1400, "mA": 600, "voltage": 5},
+    {"name": "HiLetgo Servo Motor", "part_number": "AE-HILETGO-SERVO", "price": 1.20, "stock": 2100, "mA": 200, "voltage": 5}
+  ],
+  "display": [
+    {"name": "Nextion 2.4in Touchscreen", "part_number": "AE-NEXTION24", "price": 7.00, "stock": 900, "mA": 300, "voltage": 5},
+    {"name": "Waveshare 7in HDMI LCD", "part_number": "AE-WS7INCH", "price": 19.00, "stock": 420, "mA": 800, "voltage": 5},
+    {"name": "Heltec 0.96in OLED", "part_number": "AE-HELTEC096", "price": 1.10, "stock": 2500, "mA": 16, "voltage": 5},
+    {"name": "BTF WS2812B RGB LED", "part_number": "AE-BTF-WS2812B", "price": 0.10, "stock": 12000, "mA": 12, "voltage": 5},
+    {"name": "GeeekPi HD Display", "part_number": "AE-GEEEKPI-HD", "price": 8.00, "stock": 600, "mA": 400, "voltage": 5},
+    {"name": "Diymore Mini Display", "part_number": "AE-DIYMORE-MINI", "price": 2.00, "stock": 1100, "mA": 100, "voltage": 5},
+    {"name": "Qianson LED Indicator", "part_number": "AE-QIANSON-LED", "price": 0.05, "stock": 18000, "mA": 2, "voltage": 5},
+    {"name": "UCTRONICS 1.3in Display", "part_number": "AE-UCTRONICS13", "price": 1.50, "stock": 3000, "mA": 140, "voltage": 5},
+    {"name": "HiLetgo Touchscreen", "part_number": "AE-HILETGO-TOUCH", "price": 5.00, "stock": 1200, "mA": 240, "voltage": 5},
+    {"name": "Kuman General Display", "part_number": "AE-KUMAN-GEN", "price": 2.50, "stock": 1600, "mA": 180, "voltage": 5}
+  ],
+  "power supply": [
+    {"name": "Keeppower 18650 Battery", "part_number": "AE-KEEP18650", "price": 4.00, "stock": 1700},
+    {"name": "Anker USB Power Adapter", "part_number": "AE-ANKER-USB", "price": 1.00, "stock": 4200},
+    {"name": "ALLPOWERS 5V Solar Panel", "part_number": "AE-ALLPOWERS-SOLAR5V", "price": 3.00, "stock": 900},
+    {"name": "XTAR Rechargeable Battery", "part_number": "AE-XTAR-BAT", "price": 2.00, "stock": 2200},
+    {"name": "Baseus USB Adapter", "part_number": "AE-BASEUS-USB", "price": 0.80, "stock": 3100},
+    {"name": "Sunway Solar Panel", "part_number": "AE-SUNWAY-SOLAR", "price": 2.50, "stock": 1600},
+    {"name": "Energizer Power Supply", "part_number": "AE-ENERGIZER-PS", "price": 1.50, "stock": 2000},
+    {"name": "Palo Cordless Battery", "part_number": "AE-PALO-CORDLESS", "price": 2.50, "stock": 1300}
+  ],
+  "device case": [
+    {"name": "IP66 Outdoor Enclosure", "part_number": "AE-IP66CASE", "price": 5.00, "stock": 950},
+    {"name": "SZOMK Wall-Mount Box", "part_number": "AE-SZOMK-WALL", "price": 3.00, "stock": 1200},
+    {"name": "Hammond Clear Case", "part_number": "AE-HAMMOND-CLEAR", "price": 4.00, "stock": 1100},
+    {"name": "BUD Rugged Aluminum", "part_number": "AE-BUD-RUGGED", "price": 7.00, "stock": 800},
+    {"name": "Ogrmar Compact ABS", "part_number": "AE-OGRMAR-COMPACT", "price": 2.50, "stock": 1600},
+    {"name": "LeMotech Large ABS", "part_number": "AE-LEMOTECH-LARGE", "price": 4.00, "stock": 900},
+    {"name": "QILIPSU ABS Box", "part_number": "AE-QILIPSU-ABS", "price": 2.80, "stock": 1800},
+    {"name": "Ogrmar Polycarbonate Box", "part_number": "AE-OGRMAR-PC", "price": 3.50, "stock": 1700},
+    {"name": "SZOMK Aluminum Box", "part_number": "AE-SZOMK-AL", "price": 4.50, "stock": 1500},
+    {"name": "LeMotech Plastic Box", "part_number": "AE-LEMOTECH-PLASTIC", "price": 2.00, "stock": 2000}
+  ]
+}
