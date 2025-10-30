@@ -175,3 +175,4 @@ pyrightconfig.json
 
 # Chroma
 chroma_db/
+temp/

@@ -6,6 +6,8 @@ Script to run the IoT Planner Agent as a one-shot query processor
 import sys
 import os
 import argparse
+import re
+from datetime import datetime
 
 # Add src to path so we can import our modules
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
@@ -28,7 +30,18 @@ def process_query(agent, query):
             if agent_messages:
                 last_message = agent_messages[-1]
                 if hasattr(last_message, 'content'):
-                    return last_message.content
+                    content = last_message.content
+                    # Handle the case where content is a list of dictionaries with 'text' field
+                    if isinstance(content, list) and len(content) > 0:
+                        # Extract just the text content, ignoring extras
+                        if isinstance(content[0], dict) and 'text' in content[0]:
+                            return content[0]['text']
+                        else:
+                            return str(content[0])
+                    elif isinstance(content, str):
+                        return content
+                    else:
+                        return str(content)
                 else:
                     return str(last_message)
             else:
@@ -38,6 +51,51 @@ def process_query(agent, query):
             
     except Exception as e:
         return f"❌ Error processing query: {e}"
+
+def save_response_to_markdown(query, response):
+    """Save the agent response to a markdown file in the temp directory"""
+    try:
+        # Create temp directory if it doesn't exist
+        temp_dir = os.path.join(os.path.dirname(__file__), 'temp')
+        os.makedirs(temp_dir, exist_ok=True)
+        
+        # Generate filename based on query
+        # Clean the query to make it filename-safe
+        clean_query = re.sub(r'[^\w\s-]', '', query).strip()
+        clean_query = re.sub(r'[-\s]+', '_', clean_query)
+        # Limit filename length
+        if len(clean_query) > 50:
+            clean_query = clean_query[:50]
+        
+        # Add timestamp
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"{clean_query}_{timestamp}.md"
+        
+        # Full file path
+        file_path = os.path.join(temp_dir, filename)
+        
+        # Create markdown content
+        markdown_content = f"""# IoT Planner Response
+
+**Query:** {query}
+
+**Generated:** {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
+
+---
+
+{response}
+"""
+        
+        # Write to file
+        with open(file_path, 'w', encoding='utf-8') as f:
+            f.write(markdown_content)
+        
+        print(f"💾 Response saved to: {file_path}")
+        return file_path
+        
+    except Exception as e:
+        print(f"⚠️ Warning: Could not save response to file: {e}")
+        return None
 
 def main():
     """Run the IoT Planner Agent as a one-shot query processor"""
@@ -93,6 +151,9 @@ Examples:
         # Display the response
         print(f"\n🤖 IoT Planner Response:")
         print(response)
+        
+        # Save response to markdown file
+        save_response_to_markdown(query, response)
         
         return 0
         
