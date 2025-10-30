@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Script to run the IoT Planner Agent as a one-shot query processor
+Script to run the IoT Planner Agent as a one-shot query processor with evaluation tracking
 """
 
 import sys
@@ -14,14 +14,28 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 
 from agent.iot_planner import build_iot_planner
 from langchain_core.messages import HumanMessage
+from evaluation import EvaluationTracker, EvaluationCallbackHandler, save_evaluation_results, display_performance_summary
 
 def process_query(agent, query):
-    """Process a single query with the agent and return the response"""
+    """Process a single query with the agent and return the response and evaluation metrics"""
+    # Create evaluation tracker
+    tracker = EvaluationTracker()
+    tracker.start_tracking()
+    
+    # Create callback handler
+    callback_handler = EvaluationCallbackHandler(tracker)
+    
     try:
         print("🔍 Searching IoT research database...")
         
-        # Invoke the agent with the user input wrapped in proper state format
-        response = agent.invoke({"messages": [HumanMessage(content=query)]})
+        # Estimate input tokens from query
+        tracker.metrics['tokens_used']['input_tokens'] += tracker.estimate_tokens(query)
+        
+        # Invoke the agent with the callback handler
+        response = agent.invoke(
+            {"messages": [HumanMessage(content=query)]},
+            config={"callbacks": [callback_handler]}
+        )
         
         # Extract the response content
         if hasattr(response, 'get') and 'messages' in response:
@@ -35,22 +49,39 @@ def process_query(agent, query):
                     if isinstance(content, list) and len(content) > 0:
                         # Extract just the text content, ignoring extras
                         if isinstance(content[0], dict) and 'text' in content[0]:
-                            return content[0]['text']
+                            text_response = content[0]['text']
                         else:
-                            return str(content[0])
+                            text_response = str(content[0])
                     elif isinstance(content, str):
-                        return content
+                        text_response = content
                     else:
-                        return str(content)
+                        text_response = str(content)
+                    
+                    # Estimate output tokens
+                    tracker.metrics['tokens_used']['output_tokens'] += tracker.estimate_tokens(text_response)
                 else:
-                    return str(last_message)
+                    text_response = str(last_message)
             else:
-                return "[No response generated]"
+                text_response = "[No response generated]"
         else:
-            return str(response)
+            text_response = str(response)
+        
+        # Calculate total tokens
+        tracker.metrics['tokens_used']['total_tokens'] = (
+            tracker.metrics['tokens_used']['input_tokens'] + 
+            tracker.metrics['tokens_used']['output_tokens']
+        )
+        
+        # End tracking here to capture total runtime
+        tracker.end_tracking()
+        
+        return text_response, tracker.get_summary()
             
     except Exception as e:
-        return f"❌ Error processing query: {e}"
+        tracker.track_error(e)
+        tracker.end_tracking()  # End tracking even on error
+        error_response = f"❌ Error processing query: {e}"
+        return error_response, tracker.get_summary()
 
 def save_response_to_markdown(query, response):
     """Save the agent response to a markdown file in the temp directory"""
@@ -91,7 +122,7 @@ def save_response_to_markdown(query, response):
             f.write(markdown_content)
         
         print(f"💾 Response saved to: {file_path}")
-        return file_path
+        return filename  # Return just the filename for use in evaluation saving
         
     except Exception as e:
         print(f"⚠️ Warning: Could not save response to file: {e}")
@@ -145,15 +176,22 @@ Examples:
         # Build the agent
         agent = build_iot_planner()
         
-        # Process the query
-        response = process_query(agent, query)
+        # Process the query (now returns both response and evaluation metrics)
+        response, evaluation_summary = process_query(agent, query)
         
         # Display the response
         print(f"\n🤖 IoT Planner Response:")
         print(response)
         
         # Save response to markdown file
-        save_response_to_markdown(query, response)
+        response_filename = save_response_to_markdown(query, response)
+        
+        # Save evaluation results
+        script_dir = os.path.dirname(__file__)
+        save_evaluation_results(query, evaluation_summary, response_filename, script_dir)
+        
+        # Display performance summary
+        display_performance_summary(evaluation_summary)
         
         return 0
         
