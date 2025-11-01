@@ -1,8 +1,8 @@
 from pathlib import Path
 import pytest
 
-from iot_rag.vector_store import VectorStore
-from iot_rag.parser import PDFChunk
+from rag.vector_store import VectorStore
+from rag.parser import PDFChunk
 
 
 class TestVectorStore:

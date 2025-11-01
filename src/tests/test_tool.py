@@ -1,7 +1,7 @@
-"""Unit tests for the rag_query function in the iot_rag.tool module."""
+"""Unit tests for the rag_query function in the rag.tool module."""
 
-from iot_rag.tool import rag_query
-from iot_rag.parser import PDFChunk
+from rag.tool import rag_query
+from rag.parser import PDFChunk
 
 
 def test_tool(tmpdir, monkeypatch):
@@ -23,8 +23,8 @@ def test_tool(tmpdir, monkeypatch):
         ]
 
     monkeypatch.setattr("os.listdir", mock_listdir)
-    monkeypatch.setattr("iot_rag.tool.extract_text_from_pdf", mock_extract_text)
-    monkeypatch.setattr("iot_rag.tool.get_text_chunks", mock_get_chunks)
+    monkeypatch.setattr("rag.tool.extract_text_from_pdf", mock_extract_text)
+    monkeypatch.setattr("rag.tool.get_text_chunks", mock_get_chunks)
 
     query_text = "What is IoT?"
     results = rag_query(query_text=query_text, top_k=2, verbose=True, db_path=tmpdir)
