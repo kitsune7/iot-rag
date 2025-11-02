@@ -2,16 +2,17 @@ from langchain.tools import tool
 from typing import Optional, Literal
 import chromadb
 import json
+
 from rag.tool import rag_query
 
 
 @tool
-def search_iot_research(
+def research_tool(
     query: str,
     max_results: int = 5,
 ) -> str:
     """
-    PRIMARY RESEARCH TOOL: Search through IoT research papers for evidence-based information.
+    Research Tool: Search through IoT research papers for evidence-based information.
 
     This is your MAIN source of IoT knowledge. Always use this tool FIRST when users ask about:
     - IoT technologies, architectures, or implementations
@@ -36,4 +37,20 @@ def search_iot_research(
     IMPORTANT: Base your IoT recommendations primarily on the content returned by this tool.
     """
 
-    return rag_query(query, max_results)
+    results = rag_query(query, max_results)
+
+    # Serialize QueryResult objects to JSON for LangChain compatibility and evaluation tracking
+    serialized_results = [
+        {
+            "id": r.id,
+            "document": r.document,
+            "source_file": r.metadata.source_file,
+        }
+        for r in results
+    ]
+
+    return json.dumps({
+        "query": query,
+        "num_results": len(serialized_results),
+        "results": serialized_results,
+    }, indent=2)
