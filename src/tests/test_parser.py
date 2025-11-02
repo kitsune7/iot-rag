@@ -1,4 +1,4 @@
-from iot_rag.parser import extract_text_from_pdf, get_text_chunks, PDFChunk
+from rag.parser import extract_text_from_pdf, get_text_chunks, PDFChunk
 
 
 class TestParser:
